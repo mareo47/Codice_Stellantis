@@ -1,0 +1,277 @@
+<!doctype html>
+<!-- 
+  DICHIARAZIONE DEL TIPO DI DOCUMENTO:
+  Indica che il file usa HTML
+-->
+<html lang="it">
+<head>
+  <meta charset="utf-8" /> <!-- Codifica dei caratteri in UTF-8, compatibile con le lettere accentate -->
+  <meta name="viewport" content="width=device-width,initial-scale=1" /> <!-- Adatta il layout allo schermo (responsive) -->
+  <title>Report di Sostenibilità — Stellantis (Download)</title> <!-- Titolo visibile nella scheda del browser -->
+
+  <!-- DESCRIZIONE DELLA PAGINA PER SEO E ACCESSIBILITÀ -->
+  <meta name="description" content="Pagina per scaricare i report di sostenibilità di Stellantis - accessibile e responsive." />
+  <meta name="author" content="Stellantis" /> <!-- Indica l’autore del documento -->
+  <link rel="icon" href="favicon.ico" /> <!-- Icona del sito visibile nella scheda del browser -->
+
+  <!-- STILI CSS INCORPORATI NEL DOCUMENTO -->
+  <style>
+    /* 
+      RESET CSS:
+      - Azzera margini e padding di default
+      - Imposta box-sizing a border-box per gestire meglio larghezze e padding
+    */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    /* VARIABILI CSS:
+       - Definiscono i colori principali del tema.
+       - Facilita modifiche future (es. tema chiaro/scuro). */
+    :root {
+      --green-main: #10b981; /* Verde principale per pulsanti e accenti */
+      --green-dark: #065f46; /* Verde più scuro per testi secondari */
+      --green-light: #e6f4ea; /* Verde chiaro per sfondi */
+      --text-color: #0b0b0b; /* Colore del testo principale */
+      --gray: #4b5563; /* Grigio neutro per testi secondari */
+    }
+
+    /* STILE BASE DEL DOCUMENTO */
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Font leggibile e neutro */
+      line-height: 1.4; /* Altezza delle righe per buona leggibilità */
+      color: var(--text-color);
+      background: linear-gradient(180deg, #f6fbf5 0%, #ffffff 100%); /* Sfondo chiaro con gradiente verde */
+      padding: 24px; /* Spazio attorno al contenitore principale */
+    }
+
+    /* CONTENITORE PRINCIPALE ("CARD" CENTRALE) */
+    .container {
+      max-width: 960px; /* Larghezza massima per evitare righe troppo lunghe */
+      margin: 0 auto; /* Centra orizzontalmente */
+      background: #fff; /* Sfondo bianco */
+      border-radius: 12px; /* Angoli arrotondati */
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(10,10,10,0.06); /* Ombra leggera per effetto rilievo */
+    }
+
+    /* INTESTAZIONE (LOGO + TITOLO) */
+    header { 
+      display: flex; /* Usa Flexbox per allineare gli elementi orizzontalmente */
+      align-items: center;
+      gap: 16px; /* Spazio tra logo e testo */
+    }
+
+    /* LOGO STILIZZATO CON LETTERA "S" */
+    .logo {
+      width: 64px; height: 64px;
+      border-radius: 10px;
+      display: grid; place-items: center; /* Centra la lettera "S" */
+      background: linear-gradient(135deg, var(--green-light), #c7ebd7);
+      font-weight: 700;
+      color: #116530;
+      font-size: 1.5rem;
+    }
+
+    /* TITOLI E TESTO INTRODUTTIVO */
+    h1 { margin: 0; font-size: 1.3rem; }
+    p.lead { margin: 8px 0 20px 0; color: #374151; }
+
+    /* CONTENITORE DELLE CARD DEI REPORT */
+    .reports { 
+      display: grid; /* Griglia verticale */
+      gap: 12px; /* Spazio tra le card */
+    }
+
+    /* STRUTTURA DI OGNI CARD */
+    .card {
+      display: flex; /* Disposizione orizzontale: testo a sinistra, pulsanti a destra */
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(6,120,57,0.08);
+      background: linear-gradient(180deg, #ffffff, #fbfffc); /* Sfondo sfumato */
+    }
+
+    /* SEZIONE TESTO DELLA CARD (titolo, data, descrizione) */
+    .meta { display: flex; flex-direction: column; gap: 4px; }
+    .title { font-weight: 600; } /* Titolo in grassetto */
+    .date { font-size: 0.9rem; color: var(--gray); } /* Data in grigio chiaro */
+
+    /* CONTENITORE DEI PULSANTI */
+    .btns { display: flex; gap: 8px; align-items: center; }
+
+    /* STILE BASE DEI PULSANTI PRINCIPALI */
+    .btn {
+      padding: 8px 12px;
+      border-radius: 8px;
+      text-decoration: none; /* Rimuove la sottolineatura del link */
+      font-weight: 600;
+      border: 0;
+      cursor: pointer;
+      background: var(--green-main);
+      color: white;
+      transition: transform .08s ease, box-shadow .08s ease;
+      box-shadow: 0 6px 12px rgba(16,185,129,0.12); /* Ombra morbida */
+    }
+
+    /* Effetto di pressione del pulsante */
+    .btn:active { transform: translateY(1px); }
+
+    /* VARIANTE SECONDARIA DEL PULSANTE (trasparente con bordo) */
+    .btn.secondary {
+      background: transparent;
+      color: var(--green-dark);
+      border: 1px solid rgba(6,95,70,0.12);
+      box-shadow: none;
+    }
+
+    /* FOCUS ACCESSIBILE PER TASTIERA */
+    .btn:focus, .card:focus-within {
+      outline: 3px solid rgba(16,185,129,0.18);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 640px) {
+      header { gap: 12px; }
+      .btns { flex-direction: column; align-items: flex-end; } /* Pulsanti impilati verticalmente */
+      .card { 
+        flex-direction: column; /* Disposizione verticale */
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 18px;
+      font-size: 0.85rem;
+      color: var(--gray);
+      text-align: center; /* Centra testo e immagine */
+    }
+
+    /* CLASSE "sr-only" — contenuti visibili solo ai lettori di schermo */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    CONTENITORE PRINCIPALE DELLA PAGINA
+    Ruolo "main" per l’accessibilità: indica il contenuto principale della pagina.
+  -->
+  <main class="container" role="main" aria-labelledby="main-title">
+
+    <!-- HEADER: logo e intestazione -->
+    <header>
+      <div class="logo" aria-hidden="true">S</div> <!-- Logo semplificato con la lettera S -->
+      <div>
+        <h1 id="main-title">Report di Sostenibilità — Stellantis</h1>
+        <p class="lead">
+          Scarica i report ufficiali pubblicati da Stellantis (ESG disclosures, rapporti CSR e documenti di policy).
+        </p>
+      </div>
+    </header>
+
+    <!-- SEZIONE DEI REPORT -->
+    <section aria-labelledby="reports-heading" style="margin-top:18px;">
+      <h2 id="reports-heading" class="sr-only">Elenco report disponibili</h2> 
+
+      <div class="reports" role="list">
+        
+        <!-- PRIMA CARD: Expanded Sustainability Statement -->
+        <article class="card" role="listitem" aria-labelledby="r1-title">
+          <div class="meta">
+            <div id="r1-title" class="title">2024 — Expanded Sustainability Statement</div>
+            <div class="date">Pubblicato: 18 Apr 2025</div>
+            <div style="font-size:0.9rem;color:#6b7280;">
+              Sintesi: Statement ampliato con strategia climatica e KPI ESG.
+            </div>
+          </div>
+          <div class="btns">
+            <!-- Link al PDF (apre in nuova scheda e suggerisce download) -->
+            <a class="btn"
+               href="https://www.stellantis.com/content/dam/stellantis-corporate/sustainability/esg-disclosures/Stellantis-Expanded-Sustainability-Statement-2024.pdf"
+               target="_blank" rel="noopener noreferrer"
+               download="Stellantis_2024_Expanded_Sustainability_Statement.pdf">
+              📄 Scarica PDF
+            </a>
+
+            <!-- Link secondario alla pagina ESG -->
+            <a class="btn secondary"
+               href="https://www.stellantis.com/en/sustainability/esg-disclosures"
+               target="_blank" rel="noopener noreferrer">
+              🌿 Pagina ESG
+            </a>
+          </div>
+        </article>
+
+        <!-- SECONDA CARD: CSR Report -->
+        <article class="card" role="listitem" aria-labelledby="r2-title">
+          <div class="meta">
+            <div id="r2-title" class="title">2023 — Corporate Social Responsibility Report</div>
+            <div class="date">Pubblicato: 3 Apr 2024</div>
+            <div style="font-size:0.9rem;color:#6b7280;">
+              Sintesi: KPI annuali, progressi verso obiettivi DARE Forward 2030.
+            </div>
+          </div>
+          <div class="btns">
+            <a class="btn"
+               href="https://www.stellantis.com/content/dam/stellantis-corporate/sustainability/csr-disclosure/stellantis/2023/Stellantis-2023-CSR-Report.pdf"
+               target="_blank" rel="noopener noreferrer"
+               download="Stellantis_2023_CSR_Report.pdf">
+              📄 Scarica PDF
+            </a>
+            <a class="btn secondary"
+               href="https://www.stellantis.com/en/sustainability"
+               target="_blank" rel="noopener noreferrer">
+              🌿 Sito Sostenibilità
+            </a>
+          </div>
+        </article>
+
+        <!-- TERZA CARD: Climate Policy Report -->
+        <article class="card" role="listitem" aria-labelledby="r3-title">
+          <div class="meta">
+            <div id="r3-title" class="title">2024 — Climate Policy Report</div>
+            <div class="date">Pubblicato: 31 Mar 2025</div>
+            <div style="font-size:0.9rem;color:#6b7280;">
+              Sintesi: roadmap per riduzione emissioni scopes 1-3 e target 2038.
+            </div>
+          </div>
+          <div class="btns">
+            <a class="btn"
+               href="https://www.stellantis.com/content/dam/stellantis-corporate/sustainability/csr-disclosure/stellantis/2024/Stellantis-2024-Climate-Policy-Report.pdf"
+               target="_blank" rel="noopener noreferrer"
+               download="Stellantis_2024_Climate_Policy_Report.pdf">
+              📄 Scarica PDF
+            </a>
+            <a class="btn secondary"
+               href="https://www.stellantis.com/en/sustainability/esg-disclosures"
+               target="_blank" rel="noopener noreferrer">
+              🌿 Altri documenti
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FOOTER DELLA PAGINA -->
+    <footer>
+      <strong>Documenti ufficiali pubblicati da Stellantis.</strong><br />
+      <!-- Logo aziendale -->
+      <img src="https://www.borse.it/app/uploads/2023/02/imported-stellantis-1.jpg" alt="Logo Stellantis" width="250" height="200" />
+    </footer>
+  </main>
+</body>
+</html>
