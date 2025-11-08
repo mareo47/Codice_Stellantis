@@ -1,99 +1,71 @@
-# Codice_Stellantis
-# 🌿 Stellantis — Report di Sostenibilità (HTML + CSS)
 
-## 📄 Descrizione del progetto
-Questo progetto consiste in una **pagina web statica** realizzata in **HTML5** e **CSS3**, progettata per permettere all’utente di **consultare e scaricare i report di sostenibilità** ufficiali pubblicati da **Stellantis**.  
-L’interfaccia è **semplice, pulita e responsive**, con un’attenzione particolare ad **accessibilità**, **leggibilità** e **usabilità**.
+**STELLANTIS (REPORT DI SOSTENIBILITA' HTML+CSS)**
 
----
 
-## 🧭 Obiettivi del progetto
+## Descrizione del progetto
+Questo progetto,realizzato con **HTML** E **CSS**, consiste in una **pagina web statica**, ideata per permettere all’utente di **sfogliare e scaricare i report di sostenibilità** ufficiali pubblicati da **Stellantis**.  
+L’interfaccia,da come si può vedere, è **semplice, pulita e responsive**, e pone particolare attenzione ad **accessibilità**, **leggibilità** e **usabilità**.
+
+## 1. Obiettivi del progetto
 - Presentare i documenti di sostenibilità (ESG, CSR, Climate Policy) in modo chiaro e ordinato.  
-- Permettere all’utente di **scaricare facilmente i PDF ufficiali** dai link forniti.  
-- Garantire **compatibilità multi-dispositivo** (desktop, tablet, mobile).  
+- Permettere all’utente di scaricare facilmente, dai link forniti, i PDF ufficiali 
+- Assicurare **compatibilità multi-dispositivo** (desktop, tablet, mobile).  
 - Utilizzare **buone pratiche HTML semantiche** e **CSS moderni**.  
-- Offrire un design coerente con la **brand identity “green”** di Stellantis.
+- Presentare un design coerente con la **brand identity “green”** di Stellantis.
+  
+## 2. Analisi preliminare e scelte progettuali
+Innanzitutto, prima di sviluppare il codice, sono state analizzate le pagine ufficiali di Stellantis per individuare  **stile grafico**, **tono** e **struttura** per mantenersi coerenti con l'immagine aziendale.
 
----
+Da questa analisi è emersa la necessità di:
+* Utilizzare un layout **pulito** e **minimalista**;
+* Sfruttare colori che richiamano la **sostenibilità** (toni di verde e bianco);
+* Implementare una struttura semantica in **HTML**.
 
-## ⚙️ Struttura del codice
+## 3. Struttura e organizzazione del codice
 
-### **1. HTML**
-Il documento è suddiviso in tre sezioni principali:
+Il progetto è stato realizzato come un singolo file HTML, suddiviso in tre macro-sezioni:
+* **Head**: contiene le informazioni meta, il titolo e gli stili CSS interni.
+* **Body**: racchiude il contenuto principale strutturato in un contenitore `.container.`  
+*  **Footer**: sezione conclusiva con note e logo di riferimento.
+  
+ **Struttura dei contenuti principali:**
 
-- **Header (`<header>`)**  
-  Contiene il logo “S”, il titolo principale e un breve testo introduttivo.
+* **Header**: contiene il logo (stilizzato come “S”) e il titolo principale.
+* **Sezione principale** (`<section>`) : elenca i report disponibili, dove ciascuno di essi è racchiuso in una card (`<article>`).
+* **Card dei report**: mostra titolo, data, breve descrizione e pulsanti di download o approfondimento.
 
-- **Main (`<main>`)**  
-  È il contenitore principale della pagina (ruolo `role="main"` per l’accessibilità).  
-  Include la **lista dei report** strutturata con elementi `<article>` per ogni documento disponibile.
+Ogni elemento viene seguito da attributi ARIA e tag semantici (`<main>`, `<header>`, `<section>`, `<article>`, `<footer>`) per migliorare l’esperienza degli utenti.
 
-- **Footer (`<footer>`)**  
-  Riporta una nota informativa e un logo aziendale.
+## 4. Stile e design CSS
+**Principali scelte di design:**
+* **Reset CSS** per conformare il rendering tra browser.
+* **Colori**: Utilizzo di verde chiaro e bianco per richiamare sostenibilità e pulizia visiva.
+* **Tipografia**: utilizzo di `system-ui` e `Segoe UI` per massima comprensibilità.
+* **Card con ombre leggere e bordi arrotondati**: per un effetto moderno.
+* **Bottoni in due varianti**: principale (verde) e secondario (trasparente con bordo).
+* **Focus visibile** per assicurare accessibilità da tastiera tramite pulsanti e card.
 
-Ogni **report** è rappresentato da una **card** composta da:
-- titolo del documento  
-- data di pubblicazione  
-- descrizione sintetica  
-- due pulsanti:
-  - 📄 *Scarica PDF* (download diretto)
-  - 🌿 *Link esterno* (pagina ESG o sostenibilità)
+## 5. Accessibilità
 
----
+Il codice è stato sviluppato seguendo principi di accessibilità web (WCAG 2.1):
+* utilizzo di **ruoli ARIA** (`role="main"`, `role="list"`, `role="listitem"`);
+* presenza di **etichette nascoste per screen reader** (`.sr-only`);
+* navigabilità tramite tastiera con focus visibile.
 
-### **2. CSS**
-Gli stili sono scritti in un blocco `<style>` interno, per mantenere il progetto autoconcluso.
+  
+Queste scelte fanno sì che tutti i tipi di utenti possano usufruire di questa pagina web, aldilà dei dispositivi e capacità sensoriali. 
 
-Principali scelte stilistiche:
-- **Colori principali** gestiti tramite variabili CSS (`--green-main`, `--green-dark`, ecc.).  
-- **Layout flessibile** con **Flexbox** e **CSS Grid** per la disposizione delle card.  
-- **Stile responsive** con media query per adattamento su dispositivi mobili.  
-- **Design moderno e minimale**: ombre leggere, angoli arrotondati, sfondi a gradiente.  
-- **Accessibilità migliorata** con:
-  - attributi `aria-labelledby`, `role="list"` e `role="listitem"`;
-  - focus visibile per la navigazione da tastiera;
-  - uso di `.sr-only` per contenuti destinati ai lettori di schermo.
+## 6. Test e ottimizzazione
+Dopo il primo sviluppo, la pagina è stata testata su diversi browser (**Chrome e Edge**) ed anche su dispositivi mobili.
 
----
+Sono stati verificati:
+* il corretto funzionamento dei link di download e dei pulsanti;
+* la leggibilità dei testi su schermi di dimensioni diverse;
+* la validità del codice tramite **W3C Validator**.
+## 7. Conclusioni
 
-## 🧩 Processo di sviluppo
+Il risultato finale è una pagina web **moderna**, **funzionale** e **accessibile**, che si attesta agli obiettivi iniziali di sostenibilità e chiarezza comunicativa.
+Il codice è **leggero**, **semplice** e **coinciso**.
 
-1. **Analisi dei requisiti**  
-   - Identificati i contenuti da mostrare (titoli, descrizioni, link PDF).  
-   - Stabilita la necessità di una struttura responsive e accessibile.
-
-2. **Progettazione della struttura HTML**  
-   - Definita una gerarchia logica con `header`, `main`, `section`, `article`, `footer`.  
-   - Inseriti i link ufficiali di Stellantis come riferimenti reali.
-
-3. **Progettazione dello stile CSS**  
-   - Creazione di un sistema di colori coerente con il tema “green”.  
-   - Implementato un layout a **card** con **Flexbox**.  
-   - Aggiunta una **media query** per la visualizzazione mobile.
-
-4. **Ottimizzazione per l’accessibilità**  
-   - Uso di `aria-*` per migliorare l’esperienza di lettori di schermo.  
-   - Implementazione della classe `.sr-only` per titoli nascosti.  
-   - Focus visibile per l’interazione da tastiera.
-
-5. **Testing e rifinitura**  
-   - Testata la compatibilità su diversi browser (Chrome, Firefox, Edge).  
-   - Verificato il comportamento responsive su schermi da 360px a 1440px.  
-   - Controllata la validità HTML e l’assenza di errori CSS.
-
----
-
-## 💡 Funzionalità principali
-
-| Funzione | Descrizione |
-|-----------|--------------|
-| 📄 **Download diretto dei PDF** | Ogni pulsante “Scarica PDF” apre o scarica il documento ufficiale. |
-| 🌿 **Collegamento a pagine ESG** | Link esterni alle sezioni di sostenibilità del sito Stellantis. |
-| 🧠 **Accessibilità migliorata** | Ruoli ARIA, testi alternativi e focus chiari. |
-| 📱 **Responsive design** | Layout adattivo per mobile e desktop. |
-| 🎨 **Tema coerente** | Tavolozza di verdi e sfondi chiari per riflettere i valori ecologici. |
-
----
-
-## 🧱 Struttura dei file
+Il processo di sviluppo ha permesso di approfondire ancor di più l’utilizzo di HTML e CSS, che oltre all’applicazione concreta dei principi di **accessibilità** e **design** **responsivo**, sono risultati fondamentali per una comunicazione digitale efficace e inclusiva.
 
