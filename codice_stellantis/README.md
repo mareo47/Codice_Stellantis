@@ -179,7 +179,7 @@ Aspetti tecnici implementati:
 ## 📞 Supporto
 
 Per problemi durante l'installazione o l'esecuzione:
-- Email: [email studente]
+- Email: matt12345annunziata@gmail.com
 - Verificare di avere Node.js >= 18.0.0 installato
 
 ## 📄 Licenza
@@ -189,5 +189,5 @@ Anno Accademico 2024/2025
 
 ---
 
-**Sviluppato da**: [Nome Studente]  
+**Sviluppato da**: Matteo Annunziata  
 **Corso**: Informatica per le Aziende Digitali (L-31)
