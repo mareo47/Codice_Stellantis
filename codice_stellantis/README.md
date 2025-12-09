@@ -40,8 +40,8 @@ npm --version
 
 Se il progetto è su GitHub:
 ```bash
-git clone <url-repository>
-cd sostenibilita-stellantis
+git clone https://github.com/mareo47/Codice_Stellantis.git
+cd codice_stellantis
 ```
 
 Oppure estrarre lo ZIP nella cartella desiderata.
